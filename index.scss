@@ -1,0 +1,386 @@
+// I'm now recommending this technique:
+
+@mixin interpolate(
+  $properties,
+  $min-screen,
+  $max-screen,
+  $min-value,
+  $max-value
+) {
+  & {
+    @each $property in $properties {
+      #{$property}: $min-value;
+    }
+
+    @media screen and (min-width: $min-screen) {
+      @each $property in $properties {
+        #{$property}: calc-interpolation(
+          $min-screen,
+          $min-value,
+          $max-screen,
+          $max-value
+        );
+      }
+    }
+
+    @media screen and (min-width: $max-screen) {
+      @each $property in $properties {
+        #{$property}: $max-value;
+      }
+    }
+  }
+}
+
+// Requires the calc-interpolation function which can also be used independently
+
+@function calc-interpolation($min-screen, $min-value, $max-screen, $max-value) {
+  $a: ($max-value - $min-value) / ($max-screen - $min-screen);
+  $b: $min-value - $a * $min-screen;
+
+  $sign: "+";
+  @if ($b < 0) {
+    $sign: "-";
+    $b: abs($b);
+  }
+  @return calc(#{$a * 100}vw #{$sign} #{$b});
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+$orange: #f68b21;
+$gold: #ffc728;
+body {
+  font-family: Roboto;
+  background: #f2f2f2;
+  transition: all 0.5s ease;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+nav {
+  i {
+    margin-left: 8px;
+  }
+}
+/* Nav Bar */
+nav {
+  background: white;
+  border-radius: 0px 0px 30px 30px;
+  font-weight: 500;
+}
+.navContainer {
+  width: 85%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  img {
+    height: 95px;
+    width: auto;
+  }
+}
+.menus {
+  display: flex;
+  width: 65%;
+  justify-content: space-between;
+  height: 100%;
+  @include interpolate(font-size, 500px, 1366px, 14px, 16px);
+}
+.navmenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    background: $gold;
+  }
+}
+.menu {
+  &:hover {
+    background: $gold;
+  }
+}
+.currentStudents {
+  position: relative;
+  width: 160px;
+  height: 30px;
+
+  a {
+    display: block;
+  }
+  &:hover {
+    background: $gold;
+  }
+  &:hover .currentStudentsDropdown {
+    display: block;
+    transition: all 0.5s ease;
+  }
+  &:hover i {
+    transform: rotate(180deg);
+    transition: all 0.2s ease;
+  }
+}
+.prospectiveStudents {
+  position: relative;
+  width: 190px;
+  a {
+    display: block;
+  }
+  &:hover .prospectiveStudentsDropdown {
+    display: block;
+    transition: all 0.5s ease;
+  }
+  &:hover i {
+    transform: rotate(180deg);
+    transition: all 0.2s ease;
+  }
+}
+.currentStudentsDropdown {
+  position: absolute;
+  top: 100%;
+  width: 220px;
+  align-self: flex-start;
+  display: none;
+  height: auto;
+  background: $gold;
+  a {
+    padding: 15px;
+  }
+}
+.prospectiveStudentsDropdown {
+  position: absolute;
+  top: 100%;
+  display: none;
+  position: absolute;
+  align-self: flex-start;
+  height: auto;
+  width: 220px;
+  background: $gold;
+  a {
+    padding: 15px;
+  }
+}
+.events {
+  width: 100px;
+}
+
+.ourTeam {
+  width: 85px;
+  height: 30px;
+}
+.sponsors {
+  width: 80px;
+}
+.contactUs {
+  width: 92px;
+  height: 30px;
+}
+
+/* Landing Page */
+.landingSection {
+  height: 88vh;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+.leftContent {
+  flex: 1;
+}
+.rightImage {
+  flex: 1;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+.content {
+  width: 85%;
+  margin: auto 0 0 auto;
+  margin-bottom: 50px;
+  h1 {
+    width: 60%;
+    font-size: 3vw;
+    font-weight: 900;
+    line-height: 1.2;
+  }
+  p {
+    margin-top: 20px;
+    font-size: 18px;
+    i {
+      margin-left: 5px;
+    }
+  }
+}
+/* Who we are */
+.whoweare {
+  background: white;
+  width: 75%;
+  margin: auto;
+  border-radius: 30px;
+  box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.2);
+}
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  padding: 100px;
+}
+.title {
+  text-align: center;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    font-size: 50px;
+  }
+}
+.sectioncontent {
+  width: 50%;
+  h3 {
+    font-size: 22px;
+    padding: 0px 6px;
+    margin-bottom: 20px;
+    background: $orange;
+    color: white;
+    display: inline-block;
+  }
+  p {
+    line-height: 1.5;
+    font-size: 14px;
+  }
+}
+.image {
+  background: grey;
+  height: 282px;
+  width: 500px;
+  position: absolute;
+  right: 5%;
+  border-radius: 10px;
+}
+.culture {
+  display: flex;
+  flex-direction: row-reverse;
+  .image {
+    position: absolute;
+    left: 5%;
+  }
+}
+.service {
+  height: 420px;
+}
+/* About Arizona State University */
+.aboutASU {
+  width: 85%;
+  margin: auto;
+  margin-top: 80px;
+  h1 {
+    font-size: 50px;
+    height: 80px;
+  }
+}
+.aboutcards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  grid-gap: 1rem;
+}
+.aboutcard {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+.aboutimage {
+  height: 200px;
+  width: auto;
+  background: gray;
+  border-radius: 7px;
+  margin-bottom: 20px;
+}
+.aboutcontent {
+  h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  p {
+    font-size: 14px;
+    line-height: 1.5;
+    width: 95%;
+  }
+}
+/* About Tempe */
+.aboutTempe {
+  width: 85%;
+  margin: auto;
+  margin-top: 60px;
+  h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+  }
+}
+.aboutTempeCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+  grid-gap: 1rem;
+}
+.aboutTempeCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: white;
+  border-radius: 10px;
+  h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  p {
+    font-size: 14px;
+    line-height: 1.5;
+    width: 95%;
+  }
+}
+.aboutTempeimage {
+  height: 100%;
+  flex: 2;
+  background: gray;
+  border-radius: 8px;
+}
+.aboutTempecontent {
+  flex: 2;
+  margin-left: 20px;
+}
+/* Footer */
+footer {
+  height: 100px;
+  background: $orange;
+  margin-top: 40px;
+  border-radius: 20px 20px 0px 0px;
+}
+.footerContainer {
+  width: 85%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.socialicons {
+  a {
+    color: white;
+    font-size: 25px;
+    margin-left: 30px;
+  }
+}
+.copyright {
+  font-size: 16px;
+  font-weight: 500;
+}
