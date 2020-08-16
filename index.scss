@@ -86,7 +86,7 @@ nav {
 }
 .menus {
   display: flex;
-  width: 65%;
+  width: 60vw;
   justify-content: space-between;
   height: 100%;
   @include interpolate(font-size, 500px, 1366px, 14px, 16px);
