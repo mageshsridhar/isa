@@ -1,0 +1,363 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto;
+  background: #f2f2f2;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+nav i {
+  margin-left: 8px;
+}
+
+/* Nav Bar */
+nav {
+  background: white;
+  border-radius: 0px 0px 30px 30px;
+  font-weight: 500;
+}
+
+.navContainer {
+  width: 85%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.logo img {
+  height: 95px;
+  width: auto;
+}
+
+.menus {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 65%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+}
+
+.navmenu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.navmenu:hover {
+  background: #ffc728;
+}
+
+.menu:hover {
+  background: #ffc728;
+  color: black;
+}
+
+.currentStudents {
+  position: relative;
+  width: 160px;
+  height: 30px;
+}
+
+.currentStudents a {
+  display: block;
+}
+
+.currentStudents:hover {
+  background: #ffc728;
+}
+
+.currentStudents:hover .currentStudentsDropdown {
+  display: block;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.currentStudents:hover i {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.prospectiveStudents {
+  position: relative;
+  width: 190px;
+}
+
+.prospectiveStudents a {
+  display: block;
+}
+
+.prospectiveStudents:hover .prospectiveStudentsDropdown {
+  display: block;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.prospectiveStudents:hover i {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.currentStudentsDropdown {
+  position: absolute;
+  top: 100%;
+  width: 220px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  display: none;
+  height: auto;
+  background: #ffc728;
+}
+
+.currentStudentsDropdown a {
+  padding: 15px;
+}
+
+.prospectiveStudentsDropdown {
+  position: absolute;
+  top: 100%;
+  display: none;
+  position: absolute;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  height: auto;
+  width: 220px;
+  background: #ffc728;
+}
+
+.prospectiveStudentsDropdown a {
+  padding: 15px;
+}
+
+.events {
+  width: 100px;
+}
+
+.events a {
+  padding: 5px 11px;
+  color: white;
+  background: #f68b21;
+}
+
+.ourTeam {
+  width: 85px;
+  height: 30px;
+}
+
+.sponsors {
+  width: 80px;
+}
+
+.contactUs {
+  width: 92px;
+  height: 30px;
+}
+
+/*Events*/
+h2 {
+  font-size: 2.3vw;
+  background: #ffc728;
+  display: inline-block;
+  padding: 2px 6px;
+  margin-bottom: 20px;
+}
+
+.pageTitle {
+  height: 18vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.7vw;
+}
+
+hr {
+  width: 10vw;
+  border: solid 1px #f68b21;
+  margin-top: 10px;
+}
+
+.eventPageContainer {
+  width: 85%;
+  margin: auto;
+}
+
+/*Holi*/
+.leftevent {
+  width: 100%;
+  height: 70vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.leftContent {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.leftContent p {
+  width: 35vw;
+  font-size: 0.95vw;
+  line-height: 2.9vh;
+}
+
+.leftContent .highlight {
+  color: #f68b21;
+  font-weight: 500;
+  margin-top: 15px;
+}
+
+.rightImage {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.rightImage img {
+  width: 90%;
+  height: auto;
+}
+
+/*Bollywood Night*/
+.rightevent {
+  height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.rightevent .rightImage {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.rightevent .rightImage img {
+  width: 90%;
+  height: auto;
+}
+
+.rightevent .leftContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+/*Jhankaar*/
+.jhankaarImage {
+  width: 100% !important;
+  height: auto;
+}
+
+/*Footer*/
+footer {
+  height: 7vw;
+  background: #f68b21;
+  margin-top: 40px;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.footerContainer {
+  width: 85%;
+  height: 100%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+}
+
+.socialicons a {
+  color: white;
+  font-size: 1.6vw;
+  margin-left: 2vw;
+}
+
+.copyright {
+  font-size: 1vw;
+  font-weight: 500;
+}
+/*# sourceMappingURL=events.css.map */
