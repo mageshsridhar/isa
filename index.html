@@ -19,7 +19,12 @@
             ><img src="ISA Logo Digital RGB_Color.png" alt="logo"
           /></a>
         </div>
-        <div class="menus">
+        <div class="menus" id="myTopnav">
+          <div class="bar navmenu">
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
           <div class="events navmenu">
             <a href="events.html" class="menu">ISA Events</a>
           </div>
@@ -269,5 +274,15 @@
         </div>
       </div>
     </footer>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "menus") {
+          x.className += " responsive";
+        } else {
+          x.className = "menus";
+        }
+      }
+    </script>
   </body>
 </html>

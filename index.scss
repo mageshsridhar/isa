@@ -1,4 +1,50 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+@mixin interpolate(
+  $properties,
+  $min-screen,
+  $max-screen,
+  $min-value,
+  $max-value
+) {
+  & {
+    @each $property in $properties {
+      #{$property}: $min-value;
+    }
+
+    @media screen and (min-width: $min-screen) {
+      @each $property in $properties {
+        #{$property}: calc-interpolation(
+          $min-screen,
+          $min-value,
+          $max-screen,
+          $max-value
+        );
+      }
+    }
+
+    @media screen and (min-width: $max-screen) {
+      @each $property in $properties {
+        #{$property}: $max-value;
+      }
+    }
+  }
+}
+
+// Requires the calc-interpolation function which can also be used independently
+
+@function calc-interpolation($min-screen, $min-value, $max-screen, $max-value) {
+  $a: ($max-value - $min-value) / ($max-screen - $min-screen);
+  $b: $min-value - $a * $min-screen;
+
+  $sign: "+";
+  @if ($b < 0) {
+    $sign: "-";
+    $b: abs($b);
+  }
+  @return calc(#{$a * 100}vw #{$sign} #{$b});
+}
+
+// Indrek Pass also has a fantastic mixin here: http://sassmeister.com/gist/7f22e44ace49b5124eec
 * {
   margin: 0;
   padding: 0;
@@ -25,6 +71,7 @@ nav {
   background: white;
   border-radius: 0px 0px 30px 30px;
   font-weight: 500;
+  @include interpolate(font-size, 1024px, 1440px, 13px, 16px);
 }
 .navContainer {
   width: 85%;
@@ -134,7 +181,12 @@ nav {
   width: 92px;
   height: 30px;
 }
-
+.bar {
+  &:hover {
+    background: none;
+  }
+  display: none;
+}
 /* Landing Page */
 .landingSection {
   height: 88vh;
@@ -179,28 +231,29 @@ nav {
   margin: auto;
   border-radius: 30px;
   box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.2);
+  height: auto;
 }
 .section {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: auto;
-  padding: 100px;
+  padding: 6vw;
 }
 .title {
   text-align: center;
-  height: 150px;
+  height: 17vh;
   display: flex;
   align-items: center;
   justify-content: center;
   h1 {
-    font-size: 50px;
+    font-size: 4.6vw;
   }
 }
 .sectioncontent {
   width: 50%;
   h3 {
-    font-size: 22px;
+    font-size: 2.1vw;
     padding: 0px 6px;
     margin-bottom: 20px;
     background: $orange;
@@ -214,8 +267,8 @@ nav {
 }
 .image {
   background: grey;
-  height: 282px;
-  width: 500px;
+  height: 20vw;
+  width: 35vw;
   position: absolute;
   right: 5%;
   border-radius: 10px;
@@ -229,7 +282,7 @@ nav {
   }
 }
 .service {
-  height: 420px;
+  height: 40vh;
 }
 /* About Arizona State University */
 .aboutASU {
@@ -237,13 +290,13 @@ nav {
   margin: auto;
   margin-top: 80px;
   h1 {
-    font-size: 50px;
-    height: 80px;
+    font-size: 4vw;
+    margin-bottom: 20px;
   }
 }
 .aboutcards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   grid-gap: 1rem;
 }
 .aboutcard {
@@ -252,7 +305,7 @@ nav {
   padding: 20px;
 }
 .aboutimage {
-  height: 200px;
+  height: 14vw;
   width: auto;
   background: gray;
   border-radius: 7px;
@@ -275,13 +328,13 @@ nav {
   margin: auto;
   margin-top: 60px;
   h1 {
-    font-size: 50px;
+    font-size: 4vw;
     margin-bottom: 20px;
   }
 }
 .aboutTempeCards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   grid-gap: 1rem;
 }
 .aboutTempeCard {
@@ -337,4 +390,101 @@ footer {
 .copyright {
   font-size: 16px;
   font-weight: 500;
+}
+@media screen and (max-width: 768px) {
+  .navmenu {
+    display: none;
+  }
+  .menus {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .bar {
+    display: block;
+    font-size: 3vw;
+  }
+  .menus.responsive .navmenu {
+    display: flex;
+    text-align: right;
+    width: 60vw;
+    height: 8vh;
+    align-items: flex-end;
+    padding-left: 10px;
+  }
+  .prospectiveStudentsDropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: none;
+    position: absolute;
+    align-self: flex-start;
+    height: auto;
+    width: 100%;
+    background: $gold;
+    a {
+      padding: 15px;
+    }
+  }
+  .currentStudentsDropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 2;
+    display: none;
+    position: absolute;
+    align-self: flex-start;
+    height: auto;
+    width: 100%;
+    background: $gold;
+    a {
+      padding: 15px;
+    }
+  }
+  .currentStudents,
+  .prospectiveStudents {
+    &:hover {
+      padding: 15px;
+    }
+  }
+  .section {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 0 16vw;
+    margin-bottom: 40px;
+  }
+  .image {
+    display: block;
+    position: static;
+    width: 60vw;
+    height: 34vw;
+  }
+  .sectioncontent {
+    h3 {
+      font-size: 22px;
+    }
+    width: 140%;
+    margin-top: 20px;
+  }
+  .culture {
+    display: flex;
+    flex-direction: column;
+    .image {
+      position: static;
+    }
+  }
+  .service {
+    height: 80vh;
+    margin-top: -45px;
+  }
+  .aboutASU h1 {
+    text-align: center;
+  }
+  .aboutimage {
+    height: 40vh;
+  }
+  .aboutTempe h1 {
+    text-align: center;
+  }
 }
