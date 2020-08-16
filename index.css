@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -56,22 +57,6 @@ nav {
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 100%;
-}
-
-.menus {
-  font-size: 14px;
-}
-
-@media screen and (min-width: 500px) {
-  .menus {
-    font-size: calc(0.23095vw + 12.84527px);
-  }
-}
-
-@media screen and (min-width: 1366px) {
-  .menus {
-    font-size: 16px;
-  }
 }
 
 .navmenu {
