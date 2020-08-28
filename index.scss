@@ -98,12 +98,12 @@ nav {
   align-items: center;
   justify-content: center;
   &:hover {
-    background: $gold;
+    color: $gold;
   }
 }
 .menu {
   &:hover {
-    background: $gold;
+    color: $gold;
   }
 }
 .currentStudents {
@@ -115,7 +115,7 @@ nav {
     display: block;
   }
   &:hover {
-    background: $gold;
+    color: $gold;
   }
   &:hover .currentStudentsDropdown {
     display: block;
@@ -230,7 +230,6 @@ nav {
   width: 75%;
   margin: auto;
   border-radius: 30px;
-  box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.2);
   height: auto;
 }
 .section {
@@ -247,7 +246,7 @@ nav {
   align-items: center;
   justify-content: center;
   h1 {
-    font-size: 4.6vw;
+    font-size: 3.2vw;
   }
 }
 .sectioncontent {
@@ -272,6 +271,10 @@ nav {
   position: absolute;
   right: 5%;
   border-radius: 10px;
+  overflow: hidden;
+  img {
+    width: 100%;
+  }
 }
 .culture {
   display: flex;
@@ -282,7 +285,8 @@ nav {
   }
 }
 .service {
-  height: 40vh;
+  margin-bottom: 0px;
+  margin-top: 40px;
 }
 /* About Arizona State University */
 .aboutASU {
@@ -290,7 +294,7 @@ nav {
   margin: auto;
   margin-top: 80px;
   h1 {
-    font-size: 4vw;
+    font-size: 2.5vw;
     margin-bottom: 20px;
   }
 }
@@ -305,11 +309,15 @@ nav {
   padding: 20px;
 }
 .aboutimage {
-  height: 14vw;
   width: auto;
   background: gray;
   border-radius: 7px;
   margin-bottom: 20px;
+  overflow: hidden;
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
 }
 .aboutcontent {
   h3 {
@@ -328,17 +336,18 @@ nav {
   margin: auto;
   margin-top: 60px;
   h1 {
-    font-size: 4vw;
+    font-size: 2.5vw;
     margin-bottom: 20px;
   }
 }
 .aboutTempeCards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  grid-gap: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 .aboutTempeCard {
   display: flex;
+  width: 100%;
+  margin-bottom: 20px;
   justify-content: space-between;
   align-items: center;
   padding: 15px;
@@ -355,10 +364,14 @@ nav {
   }
 }
 .aboutTempeimage {
-  height: 100%;
-  flex: 2;
-  background: gray;
-  border-radius: 8px;
+  width: auto;
+  border-radius: 7px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
 }
 .aboutTempecontent {
   flex: 2;
@@ -367,6 +380,7 @@ nav {
 /* Footer */
 footer {
   height: 100px;
+  width: 100%;
   background: $orange;
   margin-top: 40px;
   border-radius: 20px 20px 0px 0px;
@@ -391,7 +405,241 @@ footer {
   font-size: 16px;
   font-weight: 500;
 }
-@media screen and (max-width: 768px) {
+/* iPad Pro */
+@media only screen and (max-width: 834px) and (orientation: portrait) {
+  .navmenu {
+    display: none;
+  }
+  .menus {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .bar {
+    display: block;
+    font-size: 3vw;
+  }
+  .menus.responsive .navmenu {
+    display: flex;
+    text-align: right;
+    width: 60vw;
+    height: 8vh;
+    align-items: flex-end;
+    padding-left: 10px;
+  }
+  .prospectiveStudentsDropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: none;
+    position: absolute;
+    align-self: flex-start;
+    height: auto;
+    width: 50%;
+    background: $gold;
+    a {
+      padding: 15px;
+    }
+  }
+  .currentStudentsDropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 2;
+    display: none;
+    position: absolute;
+    align-self: flex-start;
+    height: auto;
+    width: 50%;
+    background: $gold;
+    a {
+      padding: 15px;
+    }
+  }
+  .currentStudents,
+  .prospectiveStudents {
+    &:hover {
+      padding: 15px;
+    }
+  }
+  .section {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 0 16vw;
+    margin-bottom: 40px;
+  }
+  .image {
+    display: block;
+    position: static;
+    width: 60vw;
+    height: 34vw;
+  }
+  .sectioncontent {
+    h3 {
+      font-size: 22px;
+    }
+    width: 140%;
+    margin-top: 20px;
+  }
+  .culture {
+    display: flex;
+    flex-direction: column;
+    .image {
+      position: static;
+    }
+  }
+  .service {
+    height: 80vh;
+    margin-top: -45px;
+  }
+  .aboutASU h1 {
+    text-align: center;
+    font-size: 30px;
+  }
+  .aboutTempe h1 {
+    text-align: center;
+    font-size: 30px;
+  }
+}
+/* Android Tablets */
+@media only screen and (max-width: 768px) {
+  .navmenu {
+    display: none;
+  }
+  .menus {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .bar {
+    display: block;
+    font-size: 3vw;
+  }
+  .menus.responsive .navmenu {
+    display: flex;
+    text-align: right;
+    width: 60vw;
+    height: 8vh;
+    align-items: flex-end;
+    padding-left: 10px;
+  }
+  .prospectiveStudentsDropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: none;
+    position: absolute;
+    align-self: flex-start;
+    height: auto;
+    width: 50%;
+    background: $gold;
+    a {
+      padding: 15px;
+    }
+  }
+  .currentStudentsDropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 2;
+    display: none;
+    position: absolute;
+    align-self: flex-start;
+    height: auto;
+    width: 50%;
+    background: $gold;
+    a {
+      padding: 15px;
+    }
+  }
+  .currentStudents,
+  .prospectiveStudents {
+    &:hover {
+      padding: 15px;
+    }
+  }
+  .section {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 0 16vw;
+    margin-bottom: 40px;
+  }
+  .image {
+    display: block;
+    position: static;
+    width: 60vw;
+    height: 34vw;
+  }
+  .sectioncontent {
+    h3 {
+      font-size: 22px;
+    }
+    width: 140%;
+    margin-top: 20px;
+  }
+  .culture {
+    display: flex;
+    flex-direction: column;
+    .image {
+      position: static;
+    }
+  }
+  .aboutASU h1 {
+    text-align: center;
+    font-size: 30px;
+  }
+  .aboutTempe h1 {
+    text-align: center;
+    font-size: 30px;
+  }
+  .aboutTempeCards {
+    display: flex;
+    flex-direction: column;
+  }
+  .aboutTempeCard {
+    display: flex;
+    flex-direction: column;
+  }
+}
+/* Mobile */
+@media only screen and (min-width: 320px) and (max-width: 500px) {
+  nav {
+    i {
+      font-size: 20px;
+    }
+  }
+  .landingSection {
+    display: flex;
+    flex-direction: column-reverse;
+    h1 {
+      text-align: center;
+      font-size: 26px;
+      margin: 0;
+    }
+  }
+  .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p {
+      font-size: 14px;
+    }
+  }
+  .rightImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .leftContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   .navmenu {
     display: none;
   }
@@ -446,6 +694,14 @@ footer {
       padding: 15px;
     }
   }
+  .whoweare {
+    width: 85%;
+    height: auto;
+    border-radius: 15px;
+    h1 {
+      font-size: 30px;
+    }
+  }
   .section {
     flex-direction: column-reverse;
     justify-content: center;
@@ -454,15 +710,21 @@ footer {
     padding: 0 16vw;
     margin-bottom: 40px;
   }
+  .service {
+    margin-top: 40px;
+  }
   .image {
     display: block;
     position: static;
-    width: 60vw;
+    width: 75vw;
     height: 34vw;
   }
   .sectioncontent {
     h3 {
       font-size: 22px;
+    }
+    p {
+      font-size: 12px;
     }
     width: 140%;
     margin-top: 20px;
@@ -474,17 +736,47 @@ footer {
       position: static;
     }
   }
-  .service {
-    height: 80vh;
-    margin-top: -45px;
-  }
   .aboutASU h1 {
     text-align: center;
+    font-size: 26px;
   }
-  .aboutimage {
-    height: 40vh;
+  .aboutASU p {
+    font-size: 12px;
   }
   .aboutTempe h1 {
     text-align: center;
+    font-size: 26px;
+  }
+  .aboutTempe p {
+    font-size: 12px;
+  }
+  .aboutTempeCard {
+    display: flex;
+    flex-direction: column;
+  }
+  .aboutcards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-gap: 1rem;
+  }
+  .aboutTempecontent {
+    margin: 0;
+  }
+  .footerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .copyright {
+    font-size: 12px;
+  }
+  .socialicons {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    a {
+      margin: 0;
+    }
   }
 }

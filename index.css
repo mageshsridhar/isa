@@ -92,11 +92,11 @@ nav {
 }
 
 .navmenu:hover {
-  background: #ffc728;
+  color: #ffc728;
 }
 
 .menu:hover {
-  background: #ffc728;
+  color: #ffc728;
 }
 
 .currentStudents {
@@ -110,7 +110,7 @@ nav {
 }
 
 .currentStudents:hover {
-  background: #ffc728;
+  color: #ffc728;
 }
 
 .currentStudents:hover .currentStudentsDropdown {
@@ -266,8 +266,6 @@ nav {
   width: 75%;
   margin: auto;
   border-radius: 30px;
-  -webkit-box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.2);
   height: auto;
 }
 
@@ -300,7 +298,7 @@ nav {
 }
 
 .title h1 {
-  font-size: 4.6vw;
+  font-size: 3.2vw;
 }
 
 .sectioncontent {
@@ -328,6 +326,11 @@ nav {
   position: absolute;
   right: 5%;
   border-radius: 10px;
+  overflow: hidden;
+}
+
+.image img {
+  width: 100%;
 }
 
 .culture {
@@ -346,7 +349,8 @@ nav {
 }
 
 .service {
-  height: 40vh;
+  margin-bottom: 0px;
+  margin-top: 40px;
 }
 
 /* About Arizona State University */
@@ -357,7 +361,7 @@ nav {
 }
 
 .aboutASU h1 {
-  font-size: 4vw;
+  font-size: 2.5vw;
   margin-bottom: 20px;
 }
 
@@ -376,11 +380,17 @@ nav {
 }
 
 .aboutimage {
-  height: 14vw;
   width: auto;
   background: gray;
   border-radius: 7px;
   margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.aboutimage img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .aboutcontent h3 {
@@ -402,22 +412,26 @@ nav {
 }
 
 .aboutTempe h1 {
-  font-size: 4vw;
+  font-size: 2.5vw;
   margin-bottom: 20px;
 }
 
 .aboutTempeCards {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (minmax(400px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  grid-gap: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .aboutTempeCard {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
+  margin-bottom: 20px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -441,12 +455,16 @@ nav {
 }
 
 .aboutTempeimage {
-  height: 100%;
-  -webkit-box-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
-  background: gray;
-  border-radius: 8px;
+  width: auto;
+  border-radius: 7px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.aboutTempeimage img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .aboutTempecontent {
@@ -459,6 +477,7 @@ nav {
 /* Footer */
 footer {
   height: 100px;
+  width: 100%;
   background: #f68b21;
   margin-top: 40px;
   border-radius: 20px 20px 0px 0px;
@@ -491,7 +510,322 @@ footer {
   font-weight: 500;
 }
 
-@media screen and (max-width: 768px) {
+/* iPad Pro */
+@media only screen and (max-width: 834px) and (orientation: portrait) {
+  .navmenu {
+    display: none;
+  }
+  .menus {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  .bar {
+    display: block;
+    font-size: 3vw;
+  }
+  .menus.responsive .navmenu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    text-align: right;
+    width: 60vw;
+    height: 8vh;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    padding-left: 10px;
+  }
+  .prospectiveStudentsDropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: none;
+    position: absolute;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+    height: auto;
+    width: 50%;
+    background: #ffc728;
+  }
+  .prospectiveStudentsDropdown a {
+    padding: 15px;
+  }
+  .currentStudentsDropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 2;
+    display: none;
+    position: absolute;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+    height: auto;
+    width: 50%;
+    background: #ffc728;
+  }
+  .currentStudentsDropdown a {
+    padding: 15px;
+  }
+  .currentStudents:hover,
+  .prospectiveStudents:hover {
+    padding: 15px;
+  }
+  .section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: auto;
+    padding: 0 16vw;
+    margin-bottom: 40px;
+  }
+  .image {
+    display: block;
+    position: static;
+    width: 60vw;
+    height: 34vw;
+  }
+  .sectioncontent {
+    width: 140%;
+    margin-top: 20px;
+  }
+  .sectioncontent h3 {
+    font-size: 22px;
+  }
+  .culture {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .culture .image {
+    position: static;
+  }
+  .service {
+    height: 80vh;
+    margin-top: -45px;
+  }
+  .aboutASU h1 {
+    text-align: center;
+    font-size: 30px;
+  }
+  .aboutTempe h1 {
+    text-align: center;
+    font-size: 30px;
+  }
+}
+
+/* Android Tablets */
+@media only screen and (max-width: 768px) {
+  .navmenu {
+    display: none;
+  }
+  .menus {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  .bar {
+    display: block;
+    font-size: 3vw;
+  }
+  .menus.responsive .navmenu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    text-align: right;
+    width: 60vw;
+    height: 8vh;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    padding-left: 10px;
+  }
+  .prospectiveStudentsDropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: none;
+    position: absolute;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+    height: auto;
+    width: 50%;
+    background: #ffc728;
+  }
+  .prospectiveStudentsDropdown a {
+    padding: 15px;
+  }
+  .currentStudentsDropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 2;
+    display: none;
+    position: absolute;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+    height: auto;
+    width: 50%;
+    background: #ffc728;
+  }
+  .currentStudentsDropdown a {
+    padding: 15px;
+  }
+  .currentStudents:hover,
+  .prospectiveStudents:hover {
+    padding: 15px;
+  }
+  .section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: auto;
+    padding: 0 16vw;
+    margin-bottom: 40px;
+  }
+  .image {
+    display: block;
+    position: static;
+    width: 60vw;
+    height: 34vw;
+  }
+  .sectioncontent {
+    width: 140%;
+    margin-top: 20px;
+  }
+  .sectioncontent h3 {
+    font-size: 22px;
+  }
+  .culture {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .culture .image {
+    position: static;
+  }
+  .aboutASU h1 {
+    text-align: center;
+    font-size: 30px;
+  }
+  .aboutTempe h1 {
+    text-align: center;
+    font-size: 30px;
+  }
+  .aboutTempeCards {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .aboutTempeCard {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+/* Mobile */
+@media only screen and (min-width: 320px) and (max-width: 500px) {
+  nav i {
+    font-size: 20px;
+  }
+  .landingSection {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .landingSection h1 {
+    text-align: center;
+    font-size: 26px;
+    margin: 0;
+  }
+  .content {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .content p {
+    font-size: 14px;
+  }
+  .rightImage {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .leftContent {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
   .navmenu {
     display: none;
   }
@@ -555,6 +889,14 @@ footer {
   .prospectiveStudents:hover {
     padding: 15px;
   }
+  .whoweare {
+    width: 85%;
+    height: auto;
+    border-radius: 15px;
+  }
+  .whoweare h1 {
+    font-size: 30px;
+  }
   .section {
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
@@ -570,10 +912,13 @@ footer {
     padding: 0 16vw;
     margin-bottom: 40px;
   }
+  .service {
+    margin-top: 40px;
+  }
   .image {
     display: block;
     position: static;
-    width: 60vw;
+    width: 75vw;
     height: 34vw;
   }
   .sectioncontent {
@@ -582,6 +927,9 @@ footer {
   }
   .sectioncontent h3 {
     font-size: 22px;
+  }
+  .sectioncontent p {
+    font-size: 12px;
   }
   .culture {
     display: -webkit-box;
@@ -595,18 +943,68 @@ footer {
   .culture .image {
     position: static;
   }
-  .service {
-    height: 80vh;
-    margin-top: -45px;
-  }
   .aboutASU h1 {
     text-align: center;
+    font-size: 26px;
   }
-  .aboutimage {
-    height: 40vh;
+  .aboutASU p {
+    font-size: 12px;
   }
   .aboutTempe h1 {
     text-align: center;
+    font-size: 26px;
+  }
+  .aboutTempe p {
+    font-size: 12px;
+  }
+  .aboutTempeCard {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .aboutcards {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(280px, 1fr))[auto-fill];
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-gap: 1rem;
+  }
+  .aboutTempecontent {
+    margin: 0;
+  }
+  .footerContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .copyright {
+    font-size: 12px;
+  }
+  .socialicons {
+    width: 60%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .socialicons a {
+    margin: 0;
   }
 }
 /*# sourceMappingURL=index.css.map */
